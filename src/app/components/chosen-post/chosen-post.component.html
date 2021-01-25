@@ -1,0 +1,3 @@
+<div *ngIf="chosenPost" class="chosenPost_wrap">
+  <app-full-info-post *ngFor="let fullPost of chosenPost" [fullPost]="fullPost"></app-full-info-post>
+</div>
