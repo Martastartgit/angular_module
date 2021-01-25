@@ -1,0 +1,7 @@
+.posts_wrap {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+

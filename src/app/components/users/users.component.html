@@ -1,0 +1,4 @@
+<app-user *ngFor="let user of users" [user]="user" (bubbleUp)="getBubble($event)"></app-user>
+<hr>
+<app-chosen-user *ngIf="chosenUser" [chosenUser]="chosenUser" (emitter)="getEventEmitter($event)"></app-chosen-user>
+

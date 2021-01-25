@@ -1,0 +1,5 @@
+<app-users (eventEmitter)="getPost($event)"></app-users>
+<div *ngIf="posts">
+  <app-posts  [posts]="posts" class="posts_wrap"></app-posts>
+</div>
+
