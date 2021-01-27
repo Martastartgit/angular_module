@@ -1,0 +1,4 @@
+.posts_wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
