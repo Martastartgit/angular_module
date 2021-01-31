@@ -1,0 +1,73 @@
+<form #form="ngForm" (ngSubmit)="submit(form)" [class.myForm]="true">
+  <h1 [class.heading]="true">Add user : </h1>
+
+  <div [class]="['formBlock']">
+    <label for="name">User name : </label>
+    <input [(ngModel)]="user.name"
+           name="name"
+           id="name" required
+           minlength="4"
+           [class]="['formInput']"
+           #name="ngModel"
+           [class.form_error]="name.invalid && (name.dirty || name.touched)"
+    >
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" [class]="['formBlock_error']">
+      <div *ngIf="name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
+  </div>
+
+  <div [class]="['formBlock']">
+    <label for="age" [class.formLabel]="true">User age : </label>
+    <input [(ngModel)]="user.age"
+           id="age"
+           name="age"
+           type="number"
+           required
+           #age="ngModel"
+           appFormValidator
+           [class]="['formInput']"
+           [class.form_error]="age.invalid && (age.dirty || age.touched)"
+    >
+    <div *ngIf="age.invalid && (age.dirty || age.touched)" [class]="['formBlock_error']">
+      <div *ngIf="age.errors.required">
+        Age is required.
+      </div>
+      <div *ngIf="age.errors.error && !age.errors.required">
+        {{age.errors.msg}}
+      </div>
+    </div>
+  </div>
+
+  <div [class]="['formBlock']">
+    <label for="email">User email : </label>
+    <input [(ngModel)]="user.email"
+           id="email"
+           name="email"
+           type="email"
+           required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+           #email="ngModel"
+           [class]="['formInput']"
+           [class.form_error]="email.invalid && (email.dirty || email.touched)"
+    >
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" [class]="['formBlock_error']">
+      <div *ngIf="email.errors.required">
+        Email is required.
+      </div>
+      <div *ngIf="email.errors.pattern">
+        Please provide a valid email address
+      </div>
+    </div>
+  </div>
+  <button class="formButton">save</button>
+</form>
+
+<div *ngIf="users" [class.users_wrapper]="true">
+  <app-users *ngFor="let user of users" [user]="user"></app-users>
+</div>
+
+

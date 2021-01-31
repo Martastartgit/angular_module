@@ -1,0 +1,71 @@
+<form [formGroup]="myForm" (ngSubmit)="submit(myForm)" [class]="['myForm']">
+  <h1 [class.heading]="true">Add user : </h1>
+  <div [class]="['formBlock']">
+    <label for="name">User name : </label>
+    <input [formControl]="name"
+           id="name" required
+           [class]="['formInput']"
+           [class.form_error]="name.invalid && (name.dirty || name.touched)"
+    >
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" [class]="['formBlock_error']">
+      <div *ngIf="name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
+  </div>
+
+  <div [class]="['formBlock']">
+    <label for="age" [class.formLabel]="true">User age : </label>
+    <input [formControl]="age"
+           id="age"
+           type="number"
+           required
+           [class]="['formInput']"
+           [class.form_error]="age.invalid && (age.dirty || age.touched)"
+    >
+    <div *ngIf="age.invalid && (age.dirty || age.touched)" [class]="['formBlock_error']">
+      <div *ngIf="age.errors.required">
+        Age is required.
+      </div>
+      <div *ngIf="age.errors.error && !age.errors.required">
+        {{age.errors.msg}}
+      </div>
+    </div>
+  </div>
+
+  <div [class]="['formBlock']">
+    <label for="email">User email : </label>
+    <input [formControl]="email"
+           type="email"
+           id="email"
+           required
+           [class]="['formInput']"
+           [class.form_error]="email.invalid && (email.dirty || email.touched)"
+    >
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" [class]="['formBlock_error']">
+      <div *ngIf="email.errors.required">
+        Email is required.
+      </div>
+      <div *ngIf="email.errors.pattern">
+        Please provide a valid email address
+      </div>
+    </div>
+  </div>
+  <button [disabled]="!myForm.valid" [class.formButton]="true">save</button>
+</form>
+<hr>
+<div *ngIf="users" [class.users_wrapper]="true">
+  <app-users *ngFor="let user of users" [user]="user"></app-users>
+</div>
+
+
+
+
+
+
+
+
+
