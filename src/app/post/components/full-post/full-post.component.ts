@@ -13,6 +13,7 @@ export class FullPostComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
