@@ -1,0 +1,10 @@
+<div class="chosenUser_wrap" *ngIf="user">
+  <h3>Name: {{user?.name}}</h3>
+  <span>Id: {{user?.id}}</span>
+  <p>UserName: {{user?.username}}</p>
+  <p>Email: {{user?.email}}</p>
+  <p>City: {{user?.address.city}}</p>
+  <p>Street: {{user?.address.street}}</p>
+  <p>Zipcode: {{user?.address.zipcode}}</p>
+  <p>Suite: {{user?.address.suite}}</p>
+</div>

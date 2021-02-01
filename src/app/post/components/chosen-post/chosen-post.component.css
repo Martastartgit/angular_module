@@ -1,0 +1,4 @@
+.chosenPost_wrap{
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,7 @@
+.post_wrap {
+  width: 250px;
+  padding: 10px;
+  border: 3px solid lightslategray;
+  background-color: #cdf7ff;
+  margin: 0 15px 15px 0;
+}
